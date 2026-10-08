@@ -1,0 +1,57 @@
+/* App screens. Requires tokens.css and components.css. */
+
+.app { padding-block: var(--s-5) var(--s-4); min-height: 100dvh; display: flex; flex-direction: column; }
+.app > main, .app .screens { flex: 1; }
+
+.app-head { display: flex; align-items: center; gap: var(--s-4); padding-bottom: var(--s-5); }
+.app-head__portrait { width: 4.5rem; flex: none; }
+.app-head__portrait img { width: 100%; height: auto; }
+.app-head h1 { font-size: var(--step-4); line-height: 1; }
+.app-head__tag { font-family: var(--font-display); font-style: italic; font-size: var(--step-1); color: var(--rose); margin-top: var(--s-1); }
+
+.screen[hidden] { display: none; }
+.screen { display: grid; gap: var(--s-5); align-content: start; }
+[tabindex="-1"]:focus, [tabindex="-1"]:focus-visible { outline: none; } /* headings take focus for screen readers only */
+
+.preview {
+  background: var(--crypt);
+  border-radius: var(--r-card);
+  overflow: hidden;
+}
+.preview img { width: 100%; max-height: 55dvh; object-fit: contain; margin-inline: auto; }
+
+.actions { display: grid; gap: var(--s-3); }
+
+.linklike {
+  all: unset; cursor: pointer; color: var(--rose);
+  text-decoration: underline; text-underline-offset: 0.2em; text-decoration-thickness: 1px;
+}
+.linklike:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: var(--r-ui); }
+
+.loading[hidden] { display: none; }
+.loading p[aria-live] { min-height: 1.4em; }
+
+.care {
+  display: grid; gap: var(--s-3);
+  padding: var(--s-5);
+  background: var(--crypt);
+  border-radius: var(--r-ui);
+  border-left: 4px solid var(--rose);
+}
+.care__msg { font-family: var(--font-display); font-size: var(--step-2); line-height: 1.25; }
+
+.tcard__face--short { font-size: var(--step-1); }
+.tag-unsure { color: var(--rose); }
+
+.coffee { display: grid; gap: var(--s-3); padding: var(--s-5); background: var(--crypt); border-radius: var(--r-ui); }
+.coffee__ask { font-family: var(--font-display); font-size: var(--step-2); line-height: 1.15; }
+
+.privacy-note { color: var(--ash); font-size: var(--step--1); }
+
+@media (min-width: 40rem) {
+  .app { padding-block: var(--s-6) var(--s-5); }
+  .app-head__portrait { width: 5.5rem; }
+  .actions { grid-template-columns: 1fr 1fr; }
+}
+
+.reading__close { font-size: var(--step-2); }

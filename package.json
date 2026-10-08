@@ -5,7 +5,8 @@
   "type": "module",
   "description": "tarotgoth.com: a goth tarot reader. Design system, styleguide and site shell.",
   "scripts": {
-    "build:social": "node scripts/build-social.mjs"
+    "build:social": "node scripts/build-social.mjs",
+    "test": "node tests/read.test.mjs"
   },
   "devDependencies": {
     "sharp": "^0.34.0"

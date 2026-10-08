@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>tarotgoth: tarot readings from a goth who has seen worse</title>
+  <meta name="description" content="Photograph your tarot spread and get a dark, sarcastic reading. tarotgoth identifies the spread and every card, then tells you what it thinks.">
+  <link rel="canonical" href="https://tarotgoth.com/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="tarotgoth">
+  <meta name="application-name" content="tarotgoth">
+  <meta name="apple-mobile-web-app-title" content="tarotgoth">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#140e17">
+  <meta name="color-scheme" content="dark">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="tarotgoth">
+  <meta property="og:locale" content="en_AU">
+  <meta property="og:url" content="https://tarotgoth.com/">
+  <meta property="og:title" content="tarotgoth: your cards, her opinion">
+  <meta property="og:description" content="Photograph your tarot spread and get a reading with teeth. Spread and cards identified automatically.">
+  <meta property="og:image" content="https://tarotgoth.com/assets/og-image.png">
+  <meta property="og:image:secure_url" content="https://tarotgoth.com/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Vesper, a pale goth tarot reader with long black hair and a raised eyebrow, sits in a gothic arch beside her black cat. Text reads: tarotgoth. Your cards. Her opinion.">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="tarotgoth: your cards, her opinion">
+  <meta name="twitter:description" content="Photograph your tarot spread and get a reading with teeth.">
+  <meta name="twitter:image" content="https://tarotgoth.com/assets/twitter-card.png">
+  <meta name="twitter:image:alt" content="Vesper, a pale goth tarot reader with long black hair and a raised eyebrow, sits in a gothic arch beside her black cat. Text reads: tarotgoth. Your cards. Her opinion.">
+  <!-- Add when the X account exists:
+  <meta name="twitter:site" content="@yourhandle"> -->
+
+  <!-- Icons and manifest -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Fonts and styles -->
+  <link rel="preload" href="/fonts/im-fell-english-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/hanken-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/app.css">
+  <script type="module" src="/js/app.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "tarotgoth",
+    "url": "https://tarotgoth.com/",
+    "description": "Photograph a tarot spread and get a dark, sarcastic reading. The app identifies the spread and each card.",
+    "applicationCategory": "EntertainmentApplication",
+    "operatingSystem": "Any, web browser",
+    "inLanguage": "en-AU",
+    "image": "https://tarotgoth.com/assets/og-image.png",
+    "email": "contact@tarotgoth.com"
+  }
+  </script>
+
+</head>
+<body>
+  <div class="wrap app">
+    <header class="app-head">
+      <div class="app-head__portrait">
+        <img src="/assets/vesper.svg" alt="Vesper, the reader: a pale young woman in black with a raised eyebrow, and her black cat Omen." width="400" height="500">
+      </div>
+      <div>
+        <h1 class="wordmark">tarotgoth</h1>
+        <p class="app-head__tag">Your cards. Her opinion.</p>
+      </div>
+    </header>
+
+    <main class="screens">
+      <noscript><p class="status"><strong>tarotgoth needs JavaScript</strong> Turn it on to photograph your spread.</p></noscript>
+
+      <section class="screen" id="screen-home">
+        <div class="upload ogive upload--gilt">
+          <svg class="upload__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2L9 5h6l1.5 2h2A1.5 1.5 0 0 1 20 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5v-9Z"/><circle cx="12" cy="13" r="3.5"/></svg>
+          <h2 class="upload__title" tabindex="-1">Lay out your spread and show me.</h2>
+          <p class="muted small">Whole spread in frame, good light, cards flat.</p>
+          <button class="btn btn--primary" type="button" id="btn-camera">Take a photo</button>
+          <button class="btn btn--secondary" type="button" id="btn-roll">Choose from camera roll</button>
+        </div>
+        <input type="file" id="in-camera" accept="image/*" capture="environment" hidden>
+        <input type="file" id="in-roll" accept="image/*" hidden>
+        <p class="privacy-note">Your photo is sent to Claude, an AI from Anthropic, to read the cards. tarotgoth doesn't save photos or readings. <a href="/privacy/">Privacy</a></p>
+      </section>
+
+      <section class="screen" id="screen-preview" hidden>
+        <h2 tabindex="-1">Is that your spread?</h2>
+        <div class="preview"><img id="preview-img" alt="Your photo of the tarot spread"></div>
+        <div class="field">
+          <label for="question">Ask a question</label>
+          <textarea class="input" id="question" rows="3" maxlength="300" placeholder="Should I text them? (They won't text back.)"></textarea>
+          <span class="hint">Optional. A vague question gets a vague reading.</span>
+        </div>
+        <div class="actions">
+          <button class="btn btn--primary" type="button" id="btn-read">Read my cards</button>
+          <button class="btn btn--secondary" type="button" id="btn-retake">Choose a different photo</button>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-loading" hidden>
+        <div class="loading" role="status">
+          <div class="loading__fan" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div>
+            <h2 class="display-italic" tabindex="-1" style="font-size:var(--step-2)">Squinting at your cards</h2>
+            <p class="muted small" id="loading-line" aria-live="polite">Omen is judging your layout.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-result" hidden>
+        <h2 id="result-title" tabindex="-1">What we found</h2>
+
+        <div class="care" id="res-care" hidden>
+          <p class="care__msg" id="res-care-msg"></p>
+          <p>If you're in danger right now, call your local emergency number (000 in Australia). If you want to talk to someone, Lifeline in Australia is 13 11 14, any time.</p>
+          <button class="btn btn--secondary" type="button" id="btn-care-again" style="justify-self:start">Start again</button>
+        </div>
+
+        <div class="stack-lg" id="res-body">
+          <div class="stack">
+            <div class="detected">
+              <p class="detected__spread" id="res-spread"></p>
+              <p class="detected__count" id="res-count"></p>
+            </div>
+            <ul class="cards" id="res-cards"></ul>
+            <p class="small muted">A card wrong? <button class="linklike" type="button" id="btn-wrong">Retake the photo</button> with the cards flat and well lit.</p>
+          </div>
+          <article class="reading stack-lg" id="res-reading" aria-label="Your reading"></article>
+        </div>
+
+        <div class="coffee" id="res-coffee">
+          <p class="coffee__ask">Enjoyed being insulted?</p>
+          <a class="btn btn--coffee btn--block" href="https://buy.stripe.com/eVq3cn1PP2pL4gU1YgaAw02" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5V9Z"/><path d="M16 10h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M9 3c-.8 1 .8 1.6 0 2.6M12.5 3c-.8 1 .8 1.6 0 2.6"/></svg>
+            Buy me a coffee, $5 AUD
+          </a>
+          <p class="muted small">One-off $5 AUD tip. Readings stay free.</p>
+        </div>
+        <button class="btn btn--secondary btn--block" type="button" id="btn-again">Read another spread</button>
+      </section>
+
+      <section class="screen" id="screen-error" hidden>
+        <div class="status status--error" role="alert">
+          <h2 id="error-title" tabindex="-1" style="font-size:var(--step-0);font-family:var(--font-ui);font-weight:600"></h2>
+          <p id="error-body"></p>
+        </div>
+        <button class="btn btn--primary btn--block" type="button" id="btn-error-retry">Try again</button>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>For entertainment only. Not medical, legal or financial advice.</p>
+      <p><a href="mailto:contact@tarotgoth.com">contact@tarotgoth.com</a> &nbsp; <a href="/privacy/">Privacy</a></p>
+    </footer>
+  </div>
+</body>
+</html>

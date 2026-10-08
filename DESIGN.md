@@ -1,7 +1,7 @@
 # tarotgoth design system
 
 Mobile-first web app. Photograph a tarot spread, get a dark, sarcastic reading from a goth reader.
-Live reference: `/styleguide/`. Tokens: `css/tokens.css`. Components: `css/components.css`.
+Live reference: `/styleguide/`. Tokens: `public/css/tokens.css`. Components: `public/css/components.css`. Other paths below are relative to `public/`.
 
 ## Product
 
@@ -100,7 +100,6 @@ Title under 60 characters, description under 160. Full tag set is in `index.html
 
 ## Open items
 
-- Stripe link: replace `#stripe-link-goes-here` in the coffee buttons when the app is built.
-- X handle: add `twitter:site` in `index.html` once an account exists.
+- Add `twitter:site` in `public/index.html` once an X account exists.
 - Confirm or rename Vesper and Omen.
-- Deploy: point Cloudflare Pages at this repo (no build step needed; output directory is the repo root).
+- Deployment and the `ANTHROPIC_API_KEY` secret: see `README.md`.

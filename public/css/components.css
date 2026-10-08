@@ -21,6 +21,7 @@ body {
 }
 
 img, svg { display: block; max-width: 100%; }
+[hidden] { display: none !important; }
 
 h1, h2, h3 {
   font-family: var(--font-display);
