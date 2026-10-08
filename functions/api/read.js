@@ -220,7 +220,17 @@ export async function onRequestPost({ request, env }) {
   }
 
   if (!upstream.ok) {
-    return json({ error: upstream.status === 429 ? "busy" : "upstream_error" }, upstream.status === 429 ? 503 : 502);
+    // Pass back the upstream status and error type (never the key) so setup problems are diagnosable.
+    let info = {};
+    try {
+      const e = (await upstream.json()).error || {};
+      info = { upstream_status: upstream.status, upstream_type: clip(e.type, 60), upstream_message: clip(e.message, 200) };
+    } catch {
+      info = { upstream_status: upstream.status };
+    }
+    console.error("anthropic error", JSON.stringify(info));
+    const busy = upstream.status === 429 || upstream.status === 529;
+    return json({ error: busy ? "busy" : "upstream_error", ...info }, busy ? 503 : 502);
   }
 
   let data;
