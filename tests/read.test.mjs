@@ -29,7 +29,8 @@ const ok = await onRequestPost({ request: mk({ image: b64, mediaType: "image/jpe
 assert.equal(ok.status, 200);
 const out = await ok.json();
 assert.equal(out.cards[0].orientation, "reversed");
-assert.equal(sent.tool_choice.name, "deliver_reading");
+assert.equal(sent.tool_choice.type, "auto");
+assert.equal(sent.tools[0].name, "deliver_reading");
 assert.match(sent.messages[0].content[1].text, /Will it work/);
 
 // sanitiser
