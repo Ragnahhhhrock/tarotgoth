@@ -46,7 +46,27 @@ const out = (f) => join(root, f);
 for (const [file, W, H] of [["og-image", 1200, 630], ["twitter-card", 1200, 600]]) {
   const svg = card(W, H);
   writeFileSync(out(`assets/${file}.svg`), svg);
-  await sharp(Buffer.from(svg), { density: 96 }).png({ compressionLevel: 9 }).toFile(out(`assets/${file}.png`));
+  await sharp(Buffer.from(svg), { density: 72 }).png({ compressionLevel: 9 }).toFile(out(`assets/${file}.png`));
+}
+
+// Stripe checkout product image: 1024x1024 square, no text (Stripe shows the title beside it).
+{
+  const S = 1024, ah = 800, aw = 640, ax = (S - aw) / 2, ay = 112;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${S}" height="${S}" viewBox="0 0 ${S} ${S}">
+  <defs>
+    <radialGradient id="glow" cx="0.5" cy="0.45" r="0.75"><stop offset="0" stop-color="#2e2335"/><stop offset="1" stop-color="${C.ink}"/></radialGradient>
+    <radialGradient id="silver" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#f4f1f7"/><stop offset="0.55" stop-color="#bdb6c6"/><stop offset="1" stop-color="#7d7388"/></radialGradient>
+  </defs>
+  <rect width="${S}" height="${S}" fill="url(#glow)"/>
+  <svg x="${ax}" y="${ay}" width="${aw}" height="${ah}" viewBox="0 0 400 500">${inner}</svg>
+  <g transform="translate(250 806)">
+    <circle r="112" fill="url(#silver)" stroke="#4a3f54" stroke-width="4"/>
+    <circle r="92" fill="none" stroke="#6b6075" stroke-width="3"/>
+    <path d="M14 -52a52 52 0 1 0 34 66a40 40 0 1 1 -34 -66Z" fill="#6b6075"/>
+  </g>
+</svg>`;
+  writeFileSync(out("assets/stripe-checkout.svg"), svg);
+  await sharp(Buffer.from(svg), { density: 72 }).png({ compressionLevel: 9 }).toFile(out("assets/stripe-checkout.png"));
 }
 
 // Icons from favicon.svg
