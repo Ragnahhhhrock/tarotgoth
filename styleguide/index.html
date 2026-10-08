@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>tarotgoth styleguide</title>
+  <meta name="description" content="Design system and styleguide for tarotgoth.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#140e17">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <style>
+    .sg-section { padding-block: var(--s-7); border-top: 1px solid var(--line-quiet); }
+    .sg-section > * + * { margin-top: var(--s-5); }
+    .sg-section > h2 { margin-bottom: var(--s-2); }
+    .lede { color: var(--ash); max-width: var(--measure); }
+
+    .persona { display: grid; gap: var(--s-5); justify-items: center; }
+    .persona__art { width: min(72vw, 17rem); }
+    .persona dl { display: grid; gap: var(--s-3); margin: 0; width: 100%; }
+    .persona dt { font-weight: 600; }
+    .persona dd { margin: 0; color: var(--ash); }
+
+    .swatches { display: grid; gap: var(--s-3); list-style: none; padding: 0; margin: 0; }
+    .swatch { display: grid; grid-template-columns: 5rem 1fr; background: var(--crypt); border-radius: var(--r-ui); overflow: hidden; }
+    .swatch__chip { min-height: 5rem; border-right: 1px solid var(--line-quiet); }
+    .swatch__text { padding: var(--s-3) var(--s-4); display: grid; gap: var(--s-1); align-content: center; }
+    .swatch__name { font-family: var(--font-display); font-size: var(--step-2); line-height: 1.1; }
+    .swatch__hex { font-weight: 600; font-variant-numeric: tabular-nums; }
+    .swatch__use { color: var(--ash); font-size: var(--step--1); line-height: 1.35; }
+
+    .pairs { display: grid; gap: var(--s-3); grid-template-columns: 1fr 1fr; }
+    .pair { padding: var(--s-4); border-radius: var(--r-ui); display: grid; gap: var(--s-1); }
+    .pair b { font-family: var(--font-display); font-weight: 400; font-size: var(--step-2); }
+    .pair span { font-size: var(--step--1); }
+
+    .specimen { display: grid; gap: var(--s-1); padding-block: var(--s-4); border-bottom: 1px solid var(--line-quiet); }
+    .specimen small { color: var(--ash); font-size: var(--step--1); }
+    .sp-wordmark { font-family: var(--font-display); font-size: var(--step-5); line-height: 1; }
+    .sp-h1 { font-family: var(--font-display); font-size: var(--step-4); line-height: var(--lh-tight); }
+    .sp-h2 { font-family: var(--font-display); font-size: var(--step-3); line-height: var(--lh-tight); }
+    .sp-h3 { font-family: var(--font-display); font-size: var(--step-2); line-height: 1.15; }
+    .sp-read { font-family: var(--font-display); font-size: var(--step-1); line-height: var(--lh-reading); max-width: var(--measure); }
+    .sp-ui { font-size: var(--step-0); font-weight: 600; }
+    .sp-cap { font-size: var(--step--1); color: var(--ash); }
+
+    .space-row { display: grid; grid-template-columns: 4.5rem 1fr; align-items: center; gap: var(--s-3); }
+    .space-bar { height: 0.75rem; background: var(--gilt); border-radius: 2px; }
+
+    .shapes { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-4); align-items: end; }
+    .shape { display: grid; gap: var(--s-2); }
+    .shape__box { background: var(--vault); aspect-ratio: 4 / 5; }
+    .shape__box--card { aspect-ratio: 7 / 12; border-radius: var(--r-card); border: 1px solid var(--gilt); width: 55%; }
+    .shape__box--ui { aspect-ratio: 3 / 1; border-radius: var(--r-ui); background: var(--oxblood); }
+
+    .btn-col { display: grid; gap: var(--s-3); }
+    .btn-row { display: grid; gap: var(--s-2); }
+
+    .rules { margin: 0; padding-left: var(--s-5); display: grid; gap: var(--s-2); color: var(--ash); }
+    .rules strong { color: var(--bone); }
+
+    .voice { display: grid; gap: var(--s-4); }
+    .voice__row { display: grid; gap: var(--s-2); padding: var(--s-4); background: var(--crypt); border-radius: var(--r-ui); }
+    .voice__row p { line-height: 1.35; }
+    .voice__no { color: var(--ash); text-decoration: line-through; text-decoration-color: var(--line); }
+    .voice__yes { font-family: var(--font-display); font-size: var(--step-1); }
+
+    .social { display: grid; gap: var(--s-3); }
+    .social img { width: 100%; height: auto; border: 1px solid var(--line-quiet); border-radius: var(--r-ui); }
+
+    .coffee { display: grid; gap: var(--s-3); padding: var(--s-5); background: var(--crypt); border-radius: var(--r-ui); }
+    .coffee__ask { font-family: var(--font-display); font-size: var(--step-2); line-height: 1.15; }
+
+    code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.9em; color: var(--bone); background: var(--vault); padding: 0.1em 0.35em; border-radius: 3px; }
+
+    @media (min-width: 40rem) {
+      .persona { grid-template-columns: 17rem 1fr; align-items: center; }
+      .swatches { grid-template-columns: 1fr 1fr; }
+      .btn-col { max-width: 22rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap" style="padding-block: var(--s-6) var(--s-5);">
+    <a class="wordmark" href="../">tarotgoth</a>
+  </header>
+
+  <main class="wrap">
+    <section class="stack" style="padding-bottom: var(--s-7);">
+      <h1>Design system</h1>
+      <p class="lede">Everything needed to build the tarotgoth mobile web app: the reader, the palette, the type, the components and the voice. Tokens live in <code>css/tokens.css</code>. Components live in <code>css/components.css</code>.</p>
+    </section>
+
+    <!-- Reader -->
+    <section class="sg-section" id="reader">
+      <h2>The reader</h2>
+      <div class="persona">
+        <div class="persona__art">
+          <img src="../assets/vesper.svg" alt="Vesper, a pale woman in black with long dark hair and a raised eyebrow, with her black cat Omen on her shoulder." width="400" height="500">
+        </div>
+        <dl>
+          <div><dt>Vesper</dt><dd>Twenty-something goth. Dressed in black, pale because she avoids the sun, clever, sarcastic, funny in a way that makes you check whether you were just insulted.</dd></div>
+          <div><dt>Omen</dt><dd>Her black cat. Judges silently. Appears in loading and empty states, never in the reading itself.</dd></div>
+          <div><dt>Working names</dt><dd>Vesper and Omen are placeholders. Rename in one place: this page and <code>DESIGN.md</code>.</dd></div>
+        </dl>
+      </div>
+      <ul class="rules">
+        <li><strong>Draw her as a flat vector.</strong> Black hair, pale skin, oxblood lips, one raised eyebrow, a gilt crescent at the throat.</li>
+        <li><strong>Always show her inside the ogive,</strong> the pointed gothic arch.</li>
+        <li><strong>Keep the cat black with gilt eyes.</strong> Never give her a collar with a bell.</li>
+      </ul>
+    </section>
+
+    <!-- Colour -->
+    <section class="sg-section" id="colour">
+      <h2>Colour</h2>
+      <p class="lede">Bruised ink, bone and one wound. Dark is the only theme. Oxblood is used for fills only. Rose carries text on dark. Gilt is reserved for money and card edges.</p>
+      <ul class="swatches">
+        <li class="swatch"><div class="swatch__chip" style="background:#140e17;border-right-color:var(--line)"></div><div class="swatch__text"><span class="swatch__name">Ink</span><span class="swatch__hex">#140E17</span><span class="swatch__use">Page background.</span></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:#1f1724"></div><div class="swatch__text"><span class="swatch__name">Crypt</span><span class="swatch__hex">#1F1724</span><span class="swatch__use">Panels, upload zone, card faces.</span></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:#2e2335"></div><div class="swatch__text"><span class="swatch__name">Vault</span><span class="swatch__hex">#2E2335</span><span class="swatch__use">Raised or selected surfaces, dividers.</span></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:#ede4d6"></div><div class="swatch__text"><span class="swatch__name">Bone</span><span class="swatch__hex">#EDE4D6</span><span class="swatch__use">Primary text. 15.1:1 on Ink.</span></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:#b0a4b8"></div><div class="swatch__text"><span class="swatch__name">Ash</span><span class="swatch__hex">#B0A4B8</span><span class="swatch__use">Secondary text. 8.0:1 on Ink.</span></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:#8e1b2f"></div><div class="swatch__text"><span class="swatch__name">Oxblood</span><span class="swatch__hex">#8E1B2F</span><span class="swatch__use">Button fills and error edges. Bone text on top, 7.1:1. Never as text.</span></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:#ee8ca0"></div><div class="swatch__text"><span class="swatch__name">Rose</span><span class="swatch__hex">#EE8CA0</span><span class="swatch__use">Links, focus ring, the tagline. 8.1:1 on Ink.</span></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:#c4a265"></div><div class="swatch__text"><span class="swatch__name">Gilt</span><span class="swatch__hex">#C4A265</span><span class="swatch__use">The coffee button, card edges, the arch outline. 7.9:1 on Ink.</span></div></li>
+        <li class="swatch"><div class="swatch__chip" style="background:#84758e"></div><div class="swatch__text"><span class="swatch__name">Line</span><span class="swatch__hex">#84758E</span><span class="swatch__use">Input and button borders. 4.4:1 on Ink.</span></div></li>
+      </ul>
+      <div class="pairs" aria-label="Approved text pairings">
+        <div class="pair" style="background:#140e17;color:#ede4d6;border:1px solid var(--line-quiet)"><b>Bone on Ink</b><span>Body text</span></div>
+        <div class="pair" style="background:#1f1724;color:#b0a4b8"><b>Ash on Crypt</b><span>Captions</span></div>
+        <div class="pair" style="background:#8e1b2f;color:#ede4d6"><b>Bone on Oxblood</b><span>Primary button</span></div>
+        <div class="pair" style="background:#140e17;color:#ee8ca0;border:1px solid var(--line-quiet)"><b>Rose on Ink</b><span>Links, tagline</span></div>
+      </div>
+    </section>
+
+    <!-- Type -->
+    <section class="sg-section" id="type">
+      <h2>Type</h2>
+      <p class="lede">Two families. <strong>IM Fell English</strong> is the voice: wordmark, headings and the reading itself. It is a revival of seventeenth-century printing, so it looks inked rather than typed. <strong>Hanken Grotesk</strong> is the interface: buttons, labels, captions. Both are self-hosted.</p>
+      <div>
+        <div class="specimen"><span class="sp-wordmark">tarotgoth</span><small>Wordmark. IM Fell English, lowercase, step 5.</small></div>
+        <div class="specimen"><span class="sp-h1">Your cards. Her opinion.</span><small>Hero. IM Fell English, step 4.</small></div>
+        <div class="specimen"><span class="sp-h2">Three cards, zero good news.</span><small>Screen title and verdict. Step 3, italic for the verdict.</small></div>
+        <div class="specimen"><span class="sp-h3">The Tower, reversed</span><small>Card name. Step 2.</small></div>
+        <div class="specimen"><p class="sp-read">Something collapses. Probably the thing you built on a lie, which you knew, which is why you are here. Wear black. You already do.</p><small>Reading text. IM Fell English, step 1, line height 1.6, about 60 characters per line.</small></div>
+        <div class="specimen"><span class="sp-ui">Take a photo</span><small>Interface. Hanken Grotesk 600, step 0 (16px, which stops iOS zooming into fields).</small></div>
+        <div class="specimen"><span class="sp-cap">3 cards found. Check they are right before the reading.</span><small>Caption. Hanken Grotesk, step -1.</small></div>
+      </div>
+      <ul class="rules">
+        <li><strong>Sentence case everywhere.</strong> No all-caps labels, no tracked-out eyebrows.</li>
+        <li><strong>Lowercase only for the wordmark.</strong></li>
+        <li><strong>Reading text never drops below 19px.</strong> The display face gets thin on a dark screen when small.</li>
+        <li><strong>One italic moment per screen:</strong> the verdict or the tagline.</li>
+      </ul>
+    </section>
+
+    <!-- Shape and space -->
+    <section class="sg-section" id="shape">
+      <h2>Shape and space</h2>
+      <p class="lede">Three shapes. The ogive is the memorable one: the reader and the upload zone sit inside it. Cards and controls stay nearly square so the arch stands out.</p>
+      <div class="shapes">
+        <div class="shape"><div class="shape__box ogive"></div><small class="muted">Ogive. Reader, upload zone, social images.</small></div>
+        <div class="shape"><div class="shape__box shape__box--card"></div><small class="muted">Card, 6px, 7:12, gilt edge.</small></div>
+        <div class="shape"><div class="shape__box--ui shape__box"></div><small class="muted">Controls, 4px.</small></div>
+      </div>
+      <div class="stack" aria-label="Spacing scale">
+        <div class="space-row"><span class="small muted">s-2, 8</span><div class="space-bar" style="width:0.5rem"></div></div>
+        <div class="space-row"><span class="small muted">s-4, 16</span><div class="space-bar" style="width:1rem"></div></div>
+        <div class="space-row"><span class="small muted">s-5, 24</span><div class="space-bar" style="width:1.5rem"></div></div>
+        <div class="space-row"><span class="small muted">s-6, 32</span><div class="space-bar" style="width:2rem"></div></div>
+        <div class="space-row"><span class="small muted">s-7, 48</span><div class="space-bar" style="width:3rem"></div></div>
+        <div class="space-row"><span class="small muted">s-8, 72</span><div class="space-bar" style="width:4.5rem"></div></div>
+      </div>
+      <ul class="rules">
+        <li><strong>Surfaces separate by colour, not shadow.</strong> There are no drop shadows.</li>
+        <li><strong>Touch targets are 48px or taller,</strong> with 8px between neighbours.</li>
+        <li><strong>One column on phones.</strong> Reading column is 34rem at most.</li>
+        <li><strong>Respect the notch and home bar</strong> with <code>env(safe-area-inset-*)</code>.</li>
+      </ul>
+    </section>
+
+    <!-- Buttons -->
+    <section class="sg-section" id="buttons">
+      <h2>Buttons</h2>
+      <div class="btn-col">
+        <button class="btn btn--primary btn--block" type="button">Read my cards</button>
+        <button class="btn btn--secondary btn--block" type="button">Retake photo</button>
+        <a class="btn btn--coffee btn--block" href="#stripe-link-goes-here">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5V9Z"/><path d="M16 10h1.500a2.500 2.500 0 0 1 0 5H16"/><path d="M9 3c-.8 1 .8 1.600 0 2.600M12.500 3c-.8 1 .8 1.600 0 2.600"/></svg>
+          Buy me a coffee, $5 AUD
+        </a>
+        <button class="btn btn--primary btn--block" type="button" disabled>Read my cards</button>
+      </div>
+      <ul class="rules">
+        <li><strong>One primary button per screen.</strong> It is oxblood.</li>
+        <li><strong>The coffee button is gilt and never primary.</strong> It appears after a reading, not before.</li>
+        <li><strong>Label what happens.</strong> The button says "Read my cards", the result says "Your reading".</li>
+      </ul>
+    </section>
+
+    <!-- Upload -->
+    <section class="sg-section" id="upload">
+      <h2>Upload zone</h2>
+      <p class="lede">The first screen of the app. Phone camera first, camera roll second.</p>
+      <div class="upload ogive upload--gilt" style="min-height:24rem">
+        <svg class="upload__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8.500A1.500 1.500 0 0 1 5.500 7h2L9 5h6l1.500 2h2A1.500 1.500 0 0 1 20 8.500v9a1.500 1.500 0 0 1-1.500 1.500h-13A1.500 1.500 0 0 1 4 17.500v-9Z"/><circle cx="12" cy="13" r="3.500"/></svg>
+        <p class="upload__title">Lay out your spread and show me.</p>
+        <p class="muted small">Whole spread in frame, good light, cards flat.</p>
+        <button class="btn btn--primary" type="button">Take a photo</button>
+        <button class="btn btn--secondary" type="button">Choose from camera roll</button>
+      </div>
+    </section>
+
+    <!-- Detection -->
+    <section class="sg-section" id="detected">
+      <h2>What we found</h2>
+      <p class="lede">Shown before the reading so the person can catch a wrong card. Spread first, then the cards in position order. A reversed card is turned upside down and says so in words.</p>
+      <div class="detected">
+        <p class="detected__spread">Three-card spread</p>
+        <p class="detected__count">3 cards found</p>
+      </div>
+      <ul class="cards">
+        <li class="tcard"><div class="tcard__face" aria-hidden="true">5</div><span class="tcard__name">Five of Cups</span><span class="tcard__meta">Past, upright</span></li>
+        <li class="tcard"><div class="tcard__face" aria-hidden="true">XVIII</div><span class="tcard__name">The Moon</span><span class="tcard__meta">Present, upright</span></li>
+        <li class="tcard tcard--reversed"><div class="tcard__face" aria-hidden="true">XVI</div><span class="tcard__name">The Tower</span><span class="tcard__meta">Future, reversed</span></li>
+      </ul>
+      <button class="btn btn--primary btn--block" type="button">Read my cards</button>
+      <button class="btn btn--secondary btn--block" type="button">Something is wrong. Retake photo</button>
+    </section>
+
+    <!-- Reading -->
+    <section class="sg-section" id="reading">
+      <h2>The reading</h2>
+      <p class="lede">The reading is the product, so it gets the best typography. Verdict first, then each card in position order, then a short close. It ends with the coffee ask.</p>
+      <article class="reading stack-lg reading-reveal">
+        <p class="reading__verdict">Three cards, zero good news. You came to the right place.</p>
+        <section class="stack">
+          <header class="reading__position"><h3>Five of Cups</h3><span class="where">Past</span></header>
+          <p>Three cups spilled, two still standing, and you are staring at the spilled ones. Classic. Your past is a funeral you keep attending, and nobody remembers inviting you.</p>
+        </section>
+        <section class="stack">
+          <header class="reading__position"><h3>The Moon</h3><span class="where">Present</span></header>
+          <p>Nothing is what it looks like, least of all your own motives. You are making decisions in the dark and calling it intuition.</p>
+        </section>
+        <section class="stack">
+          <header class="reading__position"><h3>The Tower, reversed</h3><span class="where">Future</span></header>
+          <p>The collapse is coming and you are working hard to postpone it. Impressive effort, wrong direction. Delaying a disaster only lets it collect interest.</p>
+        </section>
+        <p class="reading__verdict" style="font-size:var(--step-2)">Wear black. You already do.</p>
+      </article>
+      <div class="coffee">
+        <p class="coffee__ask">Enjoyed being insulted?</p>
+        <a class="btn btn--coffee btn--block" href="#stripe-link-goes-here">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h11v5a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5V9Z"/><path d="M16 10h1.500a2.500 2.500 0 0 1 0 5H16"/><path d="M9 3c-.8 1 .8 1.600 0 2.600M12.500 3c-.8 1 .8 1.600 0 2.600"/></svg>
+          Buy me a coffee, $5 AUD
+        </a>
+        <p class="muted small">One-off $5 AUD donation. Readings stay free.</p>
+      </div>
+    </section>
+
+    <!-- States -->
+    <section class="sg-section" id="states">
+      <h2>States</h2>
+      <p class="lede">Loading gets personality. Errors get directions: what went wrong and what to do, in the interface's plain voice with no apology.</p>
+      <div class="loading" role="status">
+        <div class="loading__fan" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div>
+          <p class="display-italic" style="font-size:var(--step-2)">Squinting at your cards</p>
+          <p class="muted small">Omen is judging your layout.</p>
+        </div>
+      </div>
+      <div class="status status--error" role="alert">
+        <strong>Can't read that photo</strong>
+        <p>Too dark, too blurry, or no cards in frame. Retake it in better light with the whole spread visible.</p>
+        <button class="btn btn--secondary" type="button" style="justify-self:start">Retake photo</button>
+      </div>
+      <div class="status">
+        <strong>No reading yet</strong>
+        <p>Photograph your spread to begin.</p>
+      </div>
+      <div><span class="toast" role="status">Photo added</span></div>
+    </section>
+
+    <!-- Form -->
+    <section class="sg-section" id="forms">
+      <h2>Fields</h2>
+      <div class="field">
+        <label for="q">Ask a question</label>
+        <textarea class="input" id="q" rows="3" placeholder="Should I text them? (They won't text back.)"></textarea>
+        <span class="hint">Optional. A vague question gets a vague reading.</span>
+      </div>
+    </section>
+
+    <!-- Voice -->
+    <section class="sg-section" id="voice">
+      <h2>Voice</h2>
+      <p class="lede">Vesper is intelligent first, sarcastic second. The joke is always on the situation or the cards, never on someone's pain. She is dry, not cruel.</p>
+      <div class="voice">
+        <div class="voice__row"><p class="voice__no">Oopsie! We couldn't read your cards. Please try again!</p><p class="voice__yes">Can't read that photo. Retake it in better light.</p></div>
+        <div class="voice__row"><p class="voice__no">Submit</p><p class="voice__yes">Read my cards</p></div>
+        <div class="voice__row"><p class="voice__no">Your destiny awaits, dear seeker.</p><p class="voice__yes">Your cards. Her opinion.</p></div>
+        <div class="voice__row"><p class="voice__no">You are a worthless failure and the cards agree.</p><p class="voice__yes">The cards say you are repeating a mistake with great commitment.</p></div>
+      </div>
+      <ul class="rules">
+        <li><strong>Interface text is plain.</strong> Buttons, errors and labels never do the bit. Personality lives in loading lines, empty states and the reading.</li>
+        <li><strong>Be specific about the cards.</strong> A joke that could attach to any card is a weak joke.</li>
+        <li><strong>Drop the act when it matters.</strong> If someone mentions self-harm, abuse, a medical issue or a crisis, stop the sarcasm and respond plainly with care.</li>
+        <li><strong>No predictions about health, money, legal outcomes or death.</strong> Entertainment only, said once in the footer.</li>
+        <li><strong>No em dashes, no exclamation marks, no emoji.</strong></li>
+      </ul>
+    </section>
+
+    <!-- Social -->
+    <section class="sg-section" id="social">
+      <h2>Metadata and social images</h2>
+      <p class="lede">Built from the same tokens, avatar and fonts as the app. Regenerate with <code>npm run build:social</code>.</p>
+      <div class="social">
+        <img src="../assets/og-image.png" alt="Open Graph image: Vesper in a gothic arch beside her black cat, with the tarotgoth wordmark, the line Your cards. Her opinion., and a short description." width="1200" height="630">
+        <p class="small muted"><code>og-image.png</code>, 1200 by 630 (1.91:1). Used by Facebook, LinkedIn, WhatsApp, iMessage, Slack, Discord.</p>
+        <img src="../assets/twitter-card.png" alt="Twitter card image: the same composition cropped to 2:1." width="1200" height="600">
+        <p class="small muted"><code>twitter-card.png</code>, 1200 by 600 (2:1) for <code>summary_large_image</code>. Key content stays 60px inside every edge so crops do not cut it.</p>
+      </div>
+      <ul class="rules">
+        <li><strong>Title:</strong> under 60 characters, lowercase brand first.</li>
+        <li><strong>Description:</strong> under 160 characters, says what the app does.</li>
+        <li><strong>Icons:</strong> favicon.svg, favicon.ico, 180px Apple touch icon, 192 and 512 manifest icons. All use the ogive and gilt crescent on Ink.</li>
+        <li><strong>Theme colour</strong> is Ink, so the browser bar matches the page.</li>
+      </ul>
+    </section>
+
+    <!-- Accessibility -->
+    <section class="sg-section" id="access">
+      <h2>Accessibility floor</h2>
+      <ul class="rules">
+        <li><strong>Contrast:</strong> text is 7:1 or better in every approved pairing. Borders that mark a control are 3:1 or better.</li>
+        <li><strong>Focus:</strong> a 3px rose ring on every interactive element, offset so it never touches the content.</li>
+        <li><strong>Motion:</strong> one reveal when the reading arrives, one slow pulse while loading. Both stop under reduced-motion.</li>
+        <li><strong>Images:</strong> every card photo and card face has a text equivalent in the reading.</li>
+        <li><strong>Camera:</strong> never auto-open it. The person taps to start.</li>
+      </ul>
+    </section>
+
+    <footer class="site-footer">
+      <p>For entertainment only. Not medical, legal or financial advice.</p>
+      <p><a href="mailto:contact@tarotgoth.com">contact@tarotgoth.com</a></p>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,103 @@
+/* tarotgoth design tokens. Single source of truth: change here, nowhere else. */
+
+@font-face {
+  font-family: "IM Fell English";
+  src: url("../fonts/im-fell-english-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IM Fell English";
+  src: url("../fonts/im-fell-english-latin-400-italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Hanken Grotesk";
+  src: url("../fonts/hanken-grotesk-latin-wght-normal.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+
+  /* Colour: surfaces */
+  --ink: #140e17;        /* page background */
+  --crypt: #1f1724;      /* cards, panels */
+  --vault: #2e2335;      /* raised or selected surfaces, dividers */
+
+  /* Colour: text */
+  --bone: #ede4d6;       /* primary text, 15.1:1 on ink */
+  --ash: #b0a4b8;        /* secondary text, 8.0:1 on ink */
+
+  /* Colour: accents */
+  --oxblood: #8e1b2f;    /* fills only, always with bone text (7.1:1) */
+  --rose: #ee8ca0;       /* links, focus ring, highlights on dark (8.1:1 on ink) */
+  --gilt: #c4a265;       /* money and card edging only (7.9:1 on ink) */
+  --pallor: #ebe0e1;     /* the reader's skin; also light surface for the avatar */
+
+  /* Colour: lines (UI boundaries need 3:1 against ink) */
+  --line: #84758e;
+  --line-quiet: #2e2335; /* decorative dividers, not required boundaries */
+
+  /* Semantic */
+  --danger-fill: #8e1b2f;
+  --focus: var(--rose);
+
+  /* Type families */
+  --font-display: "IM Fell English", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-ui: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Type scale (mobile first, rem; 1rem = 16px) */
+  --step--1: 0.875rem;   /* captions, fine print */
+  --step-0: 1rem;        /* UI text */
+  --step-1: 1.1875rem;   /* reading text (display face needs the size) */
+  --step-2: 1.5rem;      /* card names, section titles */
+  --step-3: 2rem;        /* screen titles */
+  --step-4: 2.75rem;     /* hero */
+  --step-5: 3.75rem;     /* wordmark on large screens */
+
+  --lh-tight: 1.1;
+  --lh-ui: 1.4;
+  --lh-reading: 1.6;
+
+  /* Space (4px base) */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4.5rem;
+
+  /* Shape */
+  --r-ui: 4px;           /* buttons, inputs */
+  --r-card: 6px;         /* tarot card thumbnails */
+  --gutter: max(var(--s-4), env(safe-area-inset-left));
+  --tap: 3rem;           /* 48px minimum touch target */
+  --measure: 34rem;      /* reading column, about 60 characters at --step-1 */
+
+  /* Motion */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --t-quick: 160ms;
+  --t-reveal: 480ms;
+
+  /* Signature shape: the ogive (pointed gothic arch).
+     Use as a mask to clip a box, and as an outline background for borders. */
+  --ogive-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0 100V46Q0 18 50 0Q100 18 100 46V100Z'/%3E%3C/svg%3E");
+  --ogive-outline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M1 100V46Q1 18 50 1Q99 18 99 46V100' fill='none' stroke='%2384758e' stroke-width='1.5' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  --ogive-outline-gilt: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M1 100V46Q1 18 50 1Q99 18 99 46V100' fill='none' stroke='%23c4a265' stroke-width='2' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+}
+
+@media (min-width: 40rem) {
+  :root {
+    --step-4: 3.5rem;
+    --step-5: 5rem;
+    --gutter: var(--s-6);
+  }
+}

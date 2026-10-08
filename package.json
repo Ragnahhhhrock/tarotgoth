@@ -1,0 +1,13 @@
+{
+  "name": "tarotgoth",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "tarotgoth.com: a goth tarot reader. Design system, styleguide and site shell.",
+  "scripts": {
+    "build:social": "node scripts/build-social.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.0"
+  }
+}

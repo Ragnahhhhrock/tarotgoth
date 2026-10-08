@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="600" viewBox="0 0 1200 600">
+  <defs>
+    <radialGradient id="glow" cx="0.2" cy="0.5" r="0.8">
+      <stop offset="0" stop-color="#2e2335"/>
+      <stop offset="1" stop-color="#140E17"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#glow)"/>
+  <svg x="70" y="60" width="384" height="480" viewBox="0 0 400 500">
+  <title id="vt">Vesper, the tarotgoth reader</title>
+  <desc id="vd">A pale young woman with long black hair and a blunt fringe, a black choker and high-collared black dress, one eyebrow raised. A black cat sits in the lower right.</desc>
+  <defs>
+    <clipPath id="arch"><path d="M16 500V232Q16 92 200 8Q384 92 384 232V500Z"/></clipPath>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a2a42"/>
+      <stop offset="1" stop-color="#140E17"/>
+    </linearGradient>
+    <radialGradient id="moon" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#EDE4D6" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#EDE4D6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <g clip-path="url(#arch)">
+    <rect width="400" height="500" fill="url(#sky)"/>
+    <circle cx="200" cy="168" r="150" fill="url(#moon)"/>
+    <circle cx="200" cy="168" r="104" fill="none" stroke="#EDE4D6" stroke-opacity="0.16" stroke-width="1.5"/>
+    <!-- stars -->
+    <g fill="#EDE4D6" fill-opacity="0.55">
+      <circle cx="82" cy="150" r="1.6"/><circle cx="318" cy="118" r="1.8"/><circle cx="120" cy="84" r="1.2"/>
+      <circle cx="262" cy="60" r="1.4"/><circle cx="52" cy="248" r="1.4"/><circle cx="352" cy="236" r="1.2"/>
+    </g>
+
+    <!-- hair, back -->
+    <path d="M112 360C86 270 92 160 144 118C170 100 230 100 256 118C308 160 314 270 288 360Z" fill="#07040a"/>
+    <path d="M108 372C96 300 102 230 118 196" fill="none" stroke="#3b2d44" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+    <path d="M292 372C304 300 298 230 282 196" fill="none" stroke="#3b2d44" stroke-width="2" stroke-linecap="round" opacity="0.8"/>
+
+    <!-- neck -->
+    <path d="M176 280L224 280L230 356L170 356Z" fill="#d9ccd0"/>
+    <path d="M176 280L224 280L222 306Q200 322 178 306Z" fill="#bfb0b8"/>
+
+    <!-- shoulders and dress -->
+    <path d="M44 500C54 410 108 362 170 350L230 350C292 362 346 410 356 500Z" fill="#0b070e"/>
+    <path d="M170 350L200 424L230 350Z" fill="#d9ccd0"/>
+    <path d="M170 350L200 424L230 350" fill="none" stroke="#8E1B2F" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M44 500C54 410 108 362 170 350" fill="none" stroke="#3b2d44" stroke-width="2"/>
+    <path d="M356 500C346 410 292 362 230 350" fill="none" stroke="#3b2d44" stroke-width="2"/>
+    <!-- high lace collar -->
+    <path d="M146 356Q158 340 172 346L186 390Q166 396 150 380Z" fill="#07040a" stroke="#3b2d44" stroke-width="1.5"/>
+    <path d="M254 356Q242 340 228 346L214 390Q234 396 250 380Z" fill="#07040a" stroke="#3b2d44" stroke-width="1.5"/>
+
+    <!-- choker with crescent -->
+    <path d="M172 322Q200 336 228 322L229 334Q200 348 171 334Z" fill="#07040a"/>
+    <path d="M172 322Q200 336 228 322" fill="none" stroke="#3b2d44" stroke-width="1.5"/>
+    <path d="M194 344a8 8 0 1 0 10 0a6 6 0 1 1 -10 0Z" fill="#C4A265"/>
+
+    <!-- face -->
+    <path d="M148 196C148 152 172 128 200 128C228 128 252 152 252 196C252 246 232 288 200 296C168 288 148 246 148 196Z" fill="#ebe0e1"/>
+    <path d="M146 214C150 262 172 292 200 296C176 280 164 252 160 222Z" fill="#cdbfc6" opacity="0.7"/>
+    <!-- under-eye shadow -->
+    <ellipse cx="178" cy="218" rx="15" ry="5" fill="#9a7aa6" opacity="0.28"/>
+    <ellipse cx="222" cy="218" rx="15" ry="5" fill="#9a7aa6" opacity="0.28"/>
+    <!-- eyes: heavy liner, half-lidded -->
+    <path d="M160 206Q178 194 196 206Q178 214 160 206Z" fill="#fbf6f4"/>
+    <path d="M204 206Q222 194 240 206Q222 214 204 206Z" fill="#fbf6f4"/>
+    <circle cx="180" cy="205" r="5.4" fill="#1b0f22"/>
+    <circle cx="224" cy="205" r="5.4" fill="#1b0f22"/>
+    <circle cx="181.6" cy="203.4" r="1.3" fill="#fbf6f4"/>
+    <circle cx="225.6" cy="203.4" r="1.3" fill="#fbf6f4"/>
+    <path d="M160 206Q178 193 195 205" fill="none" stroke="#07040a" stroke-width="4.6" stroke-linecap="round"/>
+    <path d="M205 205Q222 193 240 206" fill="none" stroke="#07040a" stroke-width="4.6" stroke-linecap="round"/>
+    <path d="M160 206L152 200" stroke="#07040a" stroke-width="3.4" stroke-linecap="round"/>
+    <path d="M240 206L248 200" stroke="#07040a" stroke-width="3.4" stroke-linecap="round"/>
+    <!-- brows: left flat and unimpressed, right raised -->
+    <path d="M160 190L196 188" stroke="#07040a" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M206 184Q224 170 244 182" fill="none" stroke="#07040a" stroke-width="3.2" stroke-linecap="round"/>
+    <!-- nose -->
+    <path d="M200 218Q196 238 194 246Q200 250 206 246" fill="none" stroke="#b5a2ac" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- smirk -->
+    <path d="M184 266Q200 270 216 262" fill="none" stroke="#5b0f1e" stroke-width="2" stroke-linecap="round"/>
+    <path d="M184 266Q200 268 216 262Q206 280 194 276Q188 272 184 266Z" fill="#8E1B2F"/>
+    <path d="M216 262L222 256" stroke="#5b0f1e" stroke-width="2.2" stroke-linecap="round"/>
+
+    <!-- fringe and side hair -->
+    <path d="M140 200C130 140 160 106 200 106C240 106 270 140 260 200Q256 176 250 164Q226 156 200 158Q174 156 150 164Q144 176 140 200Z" fill="#07040a"/>
+    <path d="M152 172Q200 160 248 172" fill="none" stroke="#3b2d44" stroke-width="1.6" stroke-linecap="round" opacity="0.9"/>
+    <path d="M142 210C128 250 128 320 118 372L150 372C148 320 150 262 152 214Z" fill="#07040a"/>
+    <path d="M258 210C272 250 272 320 282 372L250 372C252 320 250 262 248 214Z" fill="#07040a"/>
+
+    <!-- cat -->
+    <g id="omen">
+      <path d="M392 500C392 446 360 418 330 418C300 418 270 446 270 500Z" fill="#150d1a"/>
+      <path d="M270 500C270 446 300 418 330 418C360 418 392 446 392 500" fill="none" stroke="#5a4766" stroke-width="2"/>
+      <path d="M392 478C412 462 414 430 396 414" fill="none" stroke="#150d1a" stroke-width="14" stroke-linecap="round"/>
+      <path d="M296 392L300 352L324 376Z" fill="#150d1a" stroke="#5a4766" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M364 392L360 352L336 376Z" fill="#150d1a" stroke="#5a4766" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M303 380L305 362L317 374Z" fill="#8E1B2F" opacity="0.7"/>
+      <path d="M357 380L355 362L343 374Z" fill="#8E1B2F" opacity="0.7"/>
+      <ellipse cx="330" cy="398" rx="38" ry="32" fill="#150d1a" stroke="#5a4766" stroke-width="2"/>
+      <ellipse cx="316" cy="394" rx="8" ry="6.4" fill="#C4A265"/>
+      <ellipse cx="344" cy="394" rx="8" ry="6.4" fill="#C4A265"/>
+      <ellipse cx="316" cy="394" rx="1.8" ry="6" fill="#07040a"/>
+      <ellipse cx="344" cy="394" rx="1.8" ry="6" fill="#07040a"/>
+      <path d="M327 407L333 407L330 411Z" fill="#8E1B2F"/>
+      <path d="M330 411Q326 416 321 414M330 411Q334 416 339 414" fill="none" stroke="#5a4766" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M296 404L276 400M296 410L276 412M364 404L384 400M364 410L384 412" stroke="#8a7596" stroke-width="1.2" stroke-linecap="round"/>
+    </g>
+  </g>
+  <path d="M16 500V232Q16 92 200 8Q384 92 384 232V500" fill="none" stroke="#C4A265" stroke-width="3" stroke-linejoin="round"/>
+</svg>
+  <text x="518" y="264" font-family="IM FELL English" font-size="128" fill="#EDE4D6">tarotgoth</text>
+  <text x="522" y="336" font-family="IM FELL English" font-style="italic" font-size="50" fill="#EE8CA0">Your cards. Her opinion.</text>
+  <text font-family="Hanken Grotesk" font-size="28" fill="#B0A4B8">
+    <tspan x="522" y="400">Photograph your tarot spread and get</tspan>
+    <tspan x="522" y="438">a reading with teeth.</tspan>
+  </text>
+  <text x="522" y="532" font-family="Hanken Grotesk" font-weight="600" font-size="26" fill="#C4A265">tarotgoth.com</text>
+</svg>
