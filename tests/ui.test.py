@@ -27,7 +27,8 @@ def run(pw, reply, name, shot=None):
     if shot: pg.screenshot(path=f"/home/claude/tools/shots/{shot}-home.png", full_page=True)
     pg.set_input_files("#in-roll", IMG); pg.wait_for_selector("#screen-preview:not([hidden])")
     if shot: pg.screenshot(path=f"/home/claude/tools/shots/{shot}-preview.png", full_page=True)
-    pg.fill("#question","Should I text them?")
+    pg.click("#question-pills .pill:has-text('Will they text back?')")
+    assert pg.get_attribute("#question-pills .pill:has-text('Will they text back?')","aria-pressed")=="true"
     pg.click("#btn-read"); pg.wait_for_timeout(700)
     return b, pg, sent, errs
 
@@ -35,7 +36,7 @@ with sync_playwright() as pw:
     # happy path
     b,pg,sent,errs = run(pw,(200,OK),"ok","ok")
     pg.wait_for_selector("#screen-result:not([hidden])")
-    assert sent["body"]["mediaType"]=="image/jpeg" and len(sent["body"]["image"])>1000 and sent["body"]["question"]=="Should I text them?"
+    assert sent["body"]["mediaType"]=="image/jpeg" and len(sent["body"]["image"])>1000 and sent["body"]["question"]=="Will they text back?"
     assert pg.inner_text("#res-spread")=="Three-card spread"
     assert pg.locator("#res-cards li").count()==3
     assert "not sure" in pg.inner_text("#res-cards")

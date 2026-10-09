@@ -118,7 +118,24 @@ a:hover { text-decoration-thickness: 2px; }
 
 /* ---------- Form controls ---------- */
 .field { display: grid; gap: var(--s-2); }
-.field label { font-weight: 600; }
+.field label, .field__label { font-weight: 600; }
+
+/* ---------- Question pills ---------- */
+.pills { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.pill {
+  min-height: var(--tap);
+  padding: var(--s-2) var(--s-4);
+  background: var(--crypt);
+  color: var(--bone);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font: 500 var(--step-0)/1.2 var(--font-ui);
+  cursor: pointer;
+  transition: background-color var(--t-quick) var(--ease), border-color var(--t-quick) var(--ease);
+  -webkit-tap-highlight-color: transparent;
+}
+.pill:hover { border-color: var(--bone); }
+.pill[aria-pressed="true"] { background: var(--oxblood); border-color: var(--oxblood); color: var(--bone); font-weight: 600; }
 .field .hint { color: var(--ash); font-size: var(--step--1); }
 .input {
   width: 100%;

@@ -104,10 +104,20 @@
       <section class="screen" id="screen-preview" hidden>
         <h2 tabindex="-1">Is that your spread?</h2>
         <div class="preview"><img id="preview-img" alt="Your photo of the tarot spread"></div>
-        <div class="field">
-          <label for="question">Ask a question</label>
-          <textarea class="input" id="question" rows="3" maxlength="300" placeholder="Should I text them? (They won't text back.)"></textarea>
-          <span class="hint">Optional. A vague question gets a vague reading.</span>
+        <div class="field" role="group" aria-labelledby="question-label">
+          <span class="field__label" id="question-label">Ask a question</span>
+          <div class="pills" id="question-pills">
+            <button type="button" class="pill" aria-pressed="false">Will they text back?</button>
+            <button type="button" class="pill" aria-pressed="false">Is love in the cards?</button>
+            <button type="button" class="pill" aria-pressed="false">Should I quit my job?</button>
+            <button type="button" class="pill" aria-pressed="false">Will money ever happen?</button>
+            <button type="button" class="pill" aria-pressed="false">What am I avoiding?</button>
+            <button type="button" class="pill" aria-pressed="false">Will things get better?</button>
+            <button type="button" class="pill" aria-pressed="false">What should I do next?</button>
+            <button type="button" class="pill" aria-pressed="false">Is this person worth it?</button>
+          </div>
+          <input type="hidden" id="question" value="">
+          <span class="hint">Optional. Tap one, or tap it again to skip.</span>
         </div>
         <div class="actions">
           <button class="btn btn--primary" type="button" id="btn-read">Read my cards</button>
