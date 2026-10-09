@@ -1,5 +1,8 @@
-// tarotgoth front end. No dependencies, no storage, no tracking.
+// tarotgoth front end. No dependencies, no storage.
 // Photos are resized in the browser, sent to /api/read, and never saved.
+// Analytics (GA4) only records event names and coarse metadata, never photo, question or reading text.
+
+import { track } from "/js/analytics.js";
 
 const $ = (id) => document.getElementById(id);
 
@@ -45,6 +48,7 @@ function showError(kind) {
   const [title, body] = ERRORS[kind] || ERRORS.server;
   $("error-title").textContent = title;
   $("error-body").textContent = body;
+  track("read_error", { error_type: kind });
   show("error");
 }
 
@@ -92,7 +96,7 @@ async function prepare(file) {
   return { dataUrl, base64: dataUrl.split(",")[1], mediaType: "image/jpeg", objectUrl: URL.createObjectURL(blob) };
 }
 
-async function onPicked(input) {
+async function onPicked(input, method) {
   const file = input.files && input.files[0];
   input.value = "";
   if (!file) return;
@@ -104,6 +108,7 @@ async function onPicked(input) {
     showError("bad_photo");
     return;
   }
+  track("photo_selected", { method });
   $("preview-img").src = photo.objectUrl;
   show("preview");
 }
@@ -127,6 +132,7 @@ function stopLoading() {
 
 async function read() {
   if (!photo) return;
+  track("read_submitted", { has_question: $("question").value.trim().length > 0 });
   startLoading();
   controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 70000);
@@ -164,6 +170,7 @@ function render(data) {
     body.hidden = true;
     coffee.hidden = true;
     $("result-title").textContent = "Before anything else";
+    track("care_shown");
     return show("result");
   }
 
@@ -205,6 +212,8 @@ function render(data) {
   void reading.offsetWidth; // restart the reveal
   reading.classList.add("reading-reveal");
 
+  track("read_completed", { spread: data.spread.name, card_count: n });
+
   show("result");
 }
 
@@ -221,13 +230,16 @@ function reset() {
 
 $("btn-camera").addEventListener("click", () => $("in-camera").click());
 $("btn-roll").addEventListener("click", () => $("in-roll").click());
-$("in-camera").addEventListener("change", (e) => onPicked(e.target));
-$("in-roll").addEventListener("change", (e) => onPicked(e.target));
+$("in-camera").addEventListener("change", (e) => onPicked(e.target, "camera"));
+$("in-roll").addEventListener("change", (e) => onPicked(e.target, "roll"));
 $("btn-read").addEventListener("click", read);
-$("btn-retake").addEventListener("click", reset);
-$("btn-wrong").addEventListener("click", reset);
-$("btn-again").addEventListener("click", reset);
-$("btn-error-retry").addEventListener("click", reset);
-$("btn-care-again").addEventListener("click", reset);
+
+const tracked = (name, handler) => () => { track(name); handler(); };
+$("btn-retake").addEventListener("click", tracked("photo_changed", reset));
+$("btn-wrong").addEventListener("click", tracked("card_wrong_retake", reset));
+$("btn-again").addEventListener("click", tracked("read_another", reset));
+$("btn-error-retry").addEventListener("click", tracked("error_retry", reset));
+$("btn-care-again").addEventListener("click", tracked("care_restart", reset));
+document.querySelector(".btn--coffee").addEventListener("click", () => track("coffee_click", { value: 5, currency: "AUD" }));
 
 show("home", false);
